@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel International School</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            transition: all 0.3s;
+        }
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero {
+            background: linear-gradient(135deg, #0c0cc2, #FFA500);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            padding: 100px 0;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .news-ticker {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .news-ticker p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: ticker 15s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .headmaster {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        .headmaster-img {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .mission-vision-card {
+            border-left: 4px solid var(--primary-color);
+        }
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+        .footer a {
+            color: #ecf0f1;
+            transition: all 0.3s;
+        }
+        .footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            background: rgba(2, 39, 79, 0.2);
+        }
+        /* New Logo Styles */
+        .school-logo {
+            max-width: 180px;
+            margin: 0 auto 25px;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"> <b>Emmanuel International School</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mission">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#history">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with New Logo -->
+    <section class="hero text-center d-flex align-items-center">
+        <div class="container">
+            <!-- Added School Logo -->
+            <img src="logo.JPG"  class="school-logo img-fluid fade-in">
+            
+            <h1 class="display-3 fw-bold mb-3">WELCOME TO EMMANUEL INTERNATIONAL SCHOOL</h1>
+            <p class="lead mb-4">We Believe in the Best</p>
+            <a href="#admissions" class="btn btn-light btn-lg pulse">Admission Requirements</a>
+        </div>
+    </section>
+
+    <!-- News Ticker -->
+    <section class="bg-primary text-white py-2">
+        <div class="container news-ticker">
+            <p class="mb-0">
+                <i class="fas fa-bullhorn me-2"></i> Admissions open for 2025-2026 Academic year | 
+                10th Anniversay will be the 1st of August 2025 | School will vacate on 24th July,2025.
+            </p>
+        </div>
+    </section>
+
+    <!-- Headmaster's Welcome -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center headmaster p-4 fade-in">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <img src="Isaac.jpg" alt="Headmaster" class="img-fluid headmaster-img">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="mb-3">Message from Our Headmaster</h2>
+                    <blockquote class="blockquote">
+                        <p class="mb-0"><i class="fas fa-quote-left text-primary me-2"></i> 
+                        At Sunshine International, we believe in nurturing each child's unique potential. 
+                        Our dedicated faculty and world-class facilities provide an environment where 
+                        curiosity thrives and excellence becomes a habit. I invite you to join our 
+                        community of lifelong learners.
+                        <i class="fas fa-quote-right text-primary ms-2"></i></p>
+                        <footer class="blockquote-footer mt-3">Mr. Isaac Takyi Boateng, <cite>Headmaster</cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-5 bg-light" id="mission">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-in">Our Guiding Principles</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 fade-in">
+                    <div class="card h-100 mission-vision-card">
+                        <div class="card-body p-4">
+                            <i class="fas fa-bullseye fa-3x mb-3 text-primary"></i>
+                            <h3>Our Mission</h3>
+                            <p>To empower students with knowledge, skills, and values to become responsible global citizens through innovative teaching and holistic development.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in">
+                    <div class="card h-100 mission-vision-card">
+                        <div class="card-body p-4">
+                            <i class="fas fa-eye fa-3x mb-3 text-primary"></i>
+                            <h3>Our Vision</h3>
+                            <p>To be a premier institution recognized for academic excellence, character development, and fostering a culture of creativity and leadership.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School History -->
+    <section class="py-5" id="history">
+        <div class="container fade-in">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Our History</h2>
+                    <div class="timeline">
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-badge bg-primary"></div>
+                            <div class="timeline-content p-4">
+                                <h4>1985: Founding Years</h4>
+                                <p>Established with just 50 students in a small building, focusing on progressive education methods.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item mb-4">
+                            <div class="timeline-badge bg-success"></div>
+                            <div class="timeline-content p-4">
+                                <h4>2002: Campus Expansion</h4>
+                                <p>Moved to our current 10-acre campus with modern science labs and sports facilities.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-badge bg-info"></div>
+                            <div class="timeline-content p-4">
+                                <h4>2020: International Recognition</h4>
+                                <p>Awarded "Best Innovative School" by the Global Education Network for our STEM programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer pt-5" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <!-- School Info -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <h3 class="h4 mb-4">
+                        <i >Emmanuel International School</i> 
+                    </h3>
+                    <p class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> Agric,Adwase-Kumasi
+                    </p>
+                    <p class="mb-3">
+                        <i class="fas fa-phone me-2"></i> 0545874141 / 0543214502
+                    </p>
+                    <p class="mb-4">
+                        <i class="fas fa-envelope me-2"></i>emmanuelinternationalschooladwaase@gmail.com
+                    </p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#about">About Us</a></li>
+                        <li class="mb-2"><a href="#mission">Mission</a></li>
+                        <li class="mb-2"><a href="#history">History</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics -->
+                <div class="col-lg-2 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Academics</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Admissions</a></li>
+                        <li class="mb-2"><a href="#">Curriculum</a></li>
+                        <li class="mb-2"><a href="#">School Calendar</a></li>
+                        <li class="mb-2"><a href="#">Faculty</a></li>
+                        <li class="mb-2"><a href="#">Student Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Newsletter</h4>
+                    <p class="mb-3">Subscribe to our newsletter for school updates and announcements.</p>
+                    <form class="mb-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mb-3">
+                        <h5 class="h6 mb-3">School Hours</h5>
+                        <p class="mb-1">Monday-Friday: 7:30 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom py-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Emmanuel International School. All rights reserved.<br>Powered by: Isaac Takyi Boateng</br></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                            <li class="list-inline-item"><span class="mx-1">|</span></li>
+                            <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+                            <li class="list-inline-item"><span class="mx-1">|</span></li>
+                            <li class="list-inline-item"><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
+</body>
+</html>
