@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel International School - Academics</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            transition: all 0.3s;
+        }
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hero {
+            background: linear-gradient(135deg, #000080, #FFA500);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+            padding: 100px 0;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+        .footer a {
+            color: #ecf0f1;
+            transition: all 0.3s;
+        }
+        .footer a:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            background: rgba(2, 39, 79, 0.2);
+        }
+        /* Academics Page Specific Styles */
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        .nav-pills .nav-link {
+            color: #333;
+            border-left: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .nav-pills .nav-link:hover {
+            border-left: 3px solid var(--primary-color);
+        }
+        .tab-content {
+            min-height: 400px;
+        }
+        /* HOD Styles */
+        .hod-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        .hod-quote {
+            position: relative;
+            padding: 0 1rem;
+        }
+        .hod-quote i:first-child {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .hod-quote i:last-child {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your Existing Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> <b>Emmanuel International School</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Academics.html">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Academics Page Hero Section -->
+    <section class="hero text-center d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">ACADEMIC PROGRAMS</h1>
+            <p class="lead mb-4">Excellence in Education Across All Levels</p>
+        </div>
+    </section>
+
+    <!-- Academics Page Content -->
+    <section class="py-5" id="academics-content">
+        <div class="container">
+            <!-- Programs Tabs -->
+            <div class="row fade-in">
+                <div class="col-lg-3">
+                    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist">
+                        <button class="nav-link active mb-2 text-start" id="v-pills-preschool-tab" data-bs-toggle="pill" data-bs-target="#v-pills-preschool" type="button">
+                            <i class="fas fa-baby me-2"></i> Preschool
+                        </button>
+                        <button class="nav-link mb-2 text-start" id="v-pills-primary-tab" data-bs-toggle="pill" data-bs-target="#v-pills-primary" type="button">
+                            <i class="fas fa-pencil-alt me-2"></i> Primary School
+                        </button>
+                        <button class="nav-link mb-2 text-start" id="v-pills-jhs-tab" data-bs-toggle="pill" data-bs-target="#v-pills-jhs" type="button">
+                            <i class="fas fa-book-open me-2"></i> JHS
+                        </button>
+                        <button class="nav-link mb-2 text-start" id="v-pills-shs-tab" data-bs-toggle="pill" data-bs-target="#v-pills-shs" type="button">
+                            <i class="fas fa-graduation-cap me-2"></i> SHS
+                        </button>
+                        <button class="nav-link text-start" id="v-pills-curriculum-tab" data-bs-toggle="pill" data-bs-target="#v-pills-curriculum" type="button">
+                            <i class="fas fa-clipboard-list me-2"></i> Curriculum
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="tab-content p-4 bg-light rounded" id="v-pills-tabContent">
+                        <!-- Preschool -->
+                        <div class="tab-pane fade show active" id="v-pills-preschool" role="tabpanel">
+                            <h3><i class="fas fa-baby text-primary me-2"></i> Preschool Program</h3>
+                            <p>Our preschool program nurtures young minds through play-based learning and early childhood development activities.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 feature-card">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-paint-brush text-primary me-2"></i> Creative Arts</h4>
+                                            <p>Developing fine motor skills through drawing, painting, and crafts.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100 feature-card">
+                                        <div class="card-body">
+                                            <h4><i class="fas fa-music text-primary me-2"></i> Music & Movement</h4>
+                                            <p>Rhythm, songs, and physical coordination activities.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Primary School -->
+                        <div class="tab-pane fade" id="v-pills-primary" role="tabpanel">
+                            <h3><i class="fas fa-pencil-alt text-primary me-2"></i> Primary School</h3>
+                            <p>Building strong foundations in core subjects while encouraging curiosity and critical thinking.</p>
+                            
+                            <table class="table mt-4">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Focus Areas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mathematics</td>
+                                        <td>Numeracy, Problem Solving, Basic Geometry</td>
+                                    </tr>
+                                    <tr>
+                                        <td>English Language</td>
+                                        <td>Reading, Writing, Speaking, Listening</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Science</td>
+                                        <td>Nature Studies, Basic Experiments</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- JHS -->
+                        <div class="tab-pane fade" id="v-pills-jhs" role="tabpanel">
+                            <h3><i class="fas fa-book-open text-primary me-2"></i> Junior High School</h3>
+                            <p>Preparing students for the BECE with a comprehensive curriculum and practical skills.</p>
+                            
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle me-2"></i> <strong>BECE Preparation:</strong> Intensive revision classes and mock exams
+                            </div>
+                            
+                            <ul class="list-group list-group-flush mt-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Core Mathematics
+                                    <span class="badge bg-primary rounded-pill">5x weekly</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    English Language
+                                    <span class="badge bg-primary rounded-pill">5x weekly</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Integrated Science
+                                    <span class="badge bg-primary rounded-pill">4x weekly</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- SHS -->
+                        <div class="tab-pane fade" id="v-pills-shs" role="tabpanel">
+                            <h3><i class="fas fa-graduation-cap text-primary me-2"></i> Senior High School</h3>
+                            <p>Specialized programs to prepare students for WASSCE and tertiary education.</p>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-primary text-white">
+                                            General Arts
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Literature, History, Government, Economics</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-success text-white">
+                                            Science
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Physics, Chemistry, Biology, Elective Math</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-header bg-info text-white">
+                                            Business
+                                        </div>
+                                        <div class="card-body">
+                                            <p>Accounting, Business Management, Economics</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Curriculum -->
+                        <div class="tab-pane fade" id="v-pills-curriculum" role="tabpanel">
+                            <h3><i class="fas fa-clipboard-list text-primary me-2"></i> School Curriculum</h3>
+                            <p>Our curriculum combines Ghana Education Service standards with international best practices.</p>
+                            
+                            <div class="accordion mt-4" id="curriculumAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            Teaching Methodology
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#curriculumAccordion">
+                                        <div class="accordion-body">
+                                            <p>We employ student-centered learning approaches including:</p>
+                                            <ul>
+                                                <li>Project-based learning</li>
+                                                <li>Collaborative group work</li>
+                                                <li>Differentiated instruction</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            Assessment System
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                        <div class="accordion-body">
+                                            <p>Continuous assessment comprising:</p>
+                                            <ul>
+                                                <li>Class tests (30%)</li>
+                                                <li>Projects (20%)</li>
+                                                <li>Mid-term exams (20%)</li>
+                                                <li>End-of-term exams (30%)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Calendar -->
+            <div class="row mt-5 fade-in">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0"><i class="far fa-calendar-alt me-2"></i> Academic Calendar 2024/2025</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="table-primary">
+                                            <th>Term</th>
+                                            <th>Duration</th>
+                                            <th>Important Dates</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>First Term</td>
+                                            <td>Sept 10 - Dec 15</td>
+                                            <td>Opening Day: Sept 10<br>Mid-Term Break: Oct 25-29</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Second Term</td>
+                                            <td>Jan 8 - Apr 5</td>
+                                            <td>Sports Day: Feb 14<br>Parent-Teacher: Mar 10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Third Term</td>
+                                            <td>May 6 - Aug 4</td>
+                                            <td>Cultural Day: Jun 20<br>Vacation: Aug 4</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heads of Department Section -->
+    <section class="py-5 bg-light" id="hod-section">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h2 class="fw-bold">Our Academic Leadership</h2>
+                <p class="lead">Meet the Heads of Department</p>
+                <div class="border-bottom mx-auto" style="width: 100px; height: 3px; background: var(--primary-color);"></div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Science HOD -->
+                <div class="col-md-4 fade-in">
+                    <div class="card h-100 feature-card border-0">
+                        <div class="text-center pt-4">
+                            <img src="hod-science.jpg" alt="Science HOD" class="hod-img rounded-circle mb-3">
+                        </div>
+                        <div class="card-body text-center">
+                            <h4>Dr. Ama Mensah</h4>
+                            <p class="text-primary mb-2"><strong>Head of Science Department</strong></p>
+                            <div class="hod-quote">
+                                <i class="fas fa-quote-left text-muted"></i>
+                                <p class="font-italic">Our science program emphasizes hands-on experimentation to spark curiosity about the natural world.</p>
+                                <i class="fas fa-quote-right text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Humanities HOD -->
+                <div class="col-md-4 fade-in">
+                    <div class="card h-100 feature-card border-0">
+                        <div class="text-center pt-4">
+                            <img src="hod-humanities.jpg" alt="Humanities HOD" class="hod-img rounded-circle mb-3">
+                        </div>
+                        <div class="card-body text-center">
+                            <h4>Mr. Kwame Osei</h4>
+                            <p class="text-primary mb-2"><strong>Head of Humanities</strong></p>
+                            <div class="hod-quote">
+                                <i class="fas fa-quote-left text-muted"></i>
+                                <p class="font-italic">We cultivate critical thinkers who understand Ghana's rich cultural heritage and global perspectives.</p>
+                                <i class="fas fa-quote-right text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages HOD -->
+                <div class="col-md-4 fade-in">
+                    <div class="card h-100 feature-card border-0">
+                        <div class="text-center pt-4">
+                            <img src="hod-languages.jpg" alt="Languages HOD" class="hod-img rounded-circle mb-3">
+                        </div>
+                        <div class="card-body text-center">
+                            <h4>Mrs. Efua Bonsu</h4>
+                            <p class="text-primary mb-2"><strong>Head of Languages</strong></p>
+                            <div class="hod-quote">
+                                <i class="fas fa-quote-left text-muted"></i>
+                                <p class="font-italic">Language is the key to global citizenship. We teach communication skills that open doors worldwide.</p>
+                                <i class="fas fa-quote-right text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center mt-4 fade-in">
+                <a href="faculty.html" class="btn btn-primary px-4">
+                    <i class="fas fa-users me-2"></i> View All Faculty
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Existing Footer -->
+    <footer class="footer pt-5" id="contact">
+        <div class="container">
+            <div class="row g-4">
+                <!-- School Info -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <h3 class="h4 mb-4">
+                        <i >Emmanuel International School</i> 
+                    </h3>
+                    <p class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> Agric,Adwase-Kumasi
+                    </p>
+                    <p class="mb-3">
+                        <i class="fas fa-phone me-2"></i> 0545874141 / 0543214502
+                    </p>
+                    <p class="mb-4">
+                        <i class="fas fa-envelope me-2"></i>emmanuelinternationalschooladwaase@gmail.com
+                    </p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="academics.html">Academics</a></li>
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Academics -->
+                <div class="col-lg-2 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Academics</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Admissions</a></li>
+                        <li class="mb-2"><a href="#">Curriculum</a></li>
+                        <li class="mb-2"><a href="#">School Calendar</a></li>
+                        <li class="mb-2"><a href="#">Faculty</a></li>
+                        <li class="mb-2"><a href="#">Student Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <h4 class="h5 mb-4">Newsletter</h4>
+                    <p class="mb-3">Subscribe to our newsletter for school updates and announcements.</p>
+                    <form class="mb-4">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mb-3">
+                        <h5 class="h6 mb-3">School Hours</h5>
+                        <p class="mb-1">Monday-Friday: 7:30 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom py-3">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        <p class="mb-0">&copy; 2025 Emmanuel International School. All rights reserved.<br>Powered by: Isaac Takyi Boateng</br></p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                            <li class="list-inline-item"><span class="mx-1">|</span></li>
+                            <li class="list-inline-item"><a href="#">Terms of Service</a></li>
+                            <li class="list-inline-item"><span class="mx-1">|</span></li>
+                            <li class="list-inline-item"><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
+</body>
+</html>
